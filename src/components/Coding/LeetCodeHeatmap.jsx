@@ -5,6 +5,8 @@ import { format, subYears } from "date-fns";
 import { LEETCODE_URL } from "../../utils/constants";
 import axios from "axios";
 import { Tooltip } from "react-tooltip";
+import { Loader } from "lucide-react";
+import CustomLoader from "../CustomLoader";
 
 const fetchLeetCodeHeatmap = async (username) => {
     try {
@@ -36,6 +38,7 @@ const fetchLeetCodeHeatmap = async (username) => {
     }
 };
 
+
 const LeetCodeHeatmap = ({ username }) => {
     const [heatmapData, setHeatmapData] = useState([]);
 
@@ -54,6 +57,10 @@ const LeetCodeHeatmap = ({ username }) => {
 
         loadHeatmapData();
     }, [username]);
+
+    if(heatmapData.length===0){
+        return <CustomLoader/>
+    }
 
     return (
         <div className="mt-6">
