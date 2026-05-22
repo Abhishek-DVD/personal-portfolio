@@ -4,7 +4,7 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import ProjectCard from "./ProjectCard";
 
 const cards = [
-  { id: 0, content: <ProjectCard title="Connectify" main="A web platform for developers, where they can connect and chat with each other, premium features with subscription." link="https://www.connectify.icu/" /> },
+  { id: 0, content: <ProjectCard title="Connectify" main="A web platform for developers, where they can connect and chat with each other, premium features with subscription." link="https://connectify-web-three.vercel.app/login" /> },
   { id: 1, content: <ProjectCard title="Crypto Exchange" main="A crypto exchange website where users can view all the exchanges and coins listed in them, in various currencies." link="https://crypto-exchange-six.vercel.app/" /> },
   { id: 2, content: <ProjectCard title="Youtube Clone" main="A video streaming platform with awesome features like search, live chat, comments, and much more..." link="https://youtube-proj.vercel.app/" /> },
   { id: 3, content: <ProjectCard title="Netflix-GPT" main="A video streaming website created in React.js with component libraries and Tailwind CSS for styling." link="https://netflix-gpt-rho-two.vercel.app/" /> },
