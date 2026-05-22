@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 import { 
   FaArrowRight, FaReact, FaNodeJs, FaDatabase, FaCloud, 
-  FaJsSquare, FaHtml5, FaCss3, FaAws, FaDocker, FaJenkins
+  FaJsSquare, FaHtml5, FaCss3, FaAws, FaDocker, FaJenkins, FaJava
 } from "react-icons/fa";
-import { SiRedux, SiJest, SiTailwindcss, SiMongodb, SiExpress, SiWebrtc,SiMysql,SiOracle } from "react-icons/si";
+import { SiRedux, SiJest, SiTailwindcss, SiMongodb, SiExpress, SiWebrtc,SiMysql,SiOracle, SiSpring } from "react-icons/si";
 // import { DiMysql } from "react-icons/di";
 import AboutImg from "../../assets/happyAvatar.webp";
 
@@ -22,13 +22,14 @@ const skills = [
   },
   {
     title: "Backend Development",
-    description: "Experienced in Node.js, Express.js, and real-time tech like WebSockets. Built scalable APIs, authentication systems, and full-stack applications.",
+    description: "Built scalable backend systems and REST APIs using Java, Spring Boot, Node.js, and Express.js for enterprise data quality platforms and full-stack applications. Worked on workflow management, rule execution systems, real-time applications, microservices-based architecture, scheduling engines, and performance optimization for high-volume data operations.",
     icon: <FaNodeJs size={30} className="text-green-400" />,
     stack: [
+      { icon: FaJava, color: "text-orange-400" },
+      { icon: SiSpring, color: "text-green-500" },
       { icon: FaJsSquare, color: "text-yellow-400" },
       { icon: FaNodeJs, color: "text-green-400" },
       { icon: SiExpress, color: "text-gray-300" },
-      { icon: SiWebrtc, color: "text-purple-300" },
     ],
   },
   {
