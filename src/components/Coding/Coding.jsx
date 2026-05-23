@@ -59,7 +59,7 @@ const Coding = () => {
           <p className="text-gray-400 text-sm">Repositories: 50+</p>
           <p className="text-gray-400 text-sm">Contributions: 500+</p>
           <a
-            href="https://github.com/Abhishekballi13/"
+            href="https://github.com/Abhishek-DVD/"
             target="_blank"
             className="mt-3 inline-block text-blue-400 hover:underline"
           >
@@ -87,7 +87,7 @@ const Coding = () => {
           transition={{ duration: 1.2, ease: "easeOut", delay: 0.3 }}
         >
           <img
-            src="https://github-readme-activity-graph.vercel.app/graph?username=Abhishekballi13&theme=rogue"
+            src="https://github-readme-activity-graph.vercel.app/graph?username=Abhishek-DVD&theme=rogue"
             alt="GitHub Heatmap"
             className="rounded-lg"
           />
