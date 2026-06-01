@@ -1,7 +1,8 @@
 import { useEffect, useState} from "react"
 
+const text = ["Hi, I'm Abhishek", "Full Stack Developer", "Java Backend Developer", "Problem Solver"]
+
 const TextChange = () => {
-    const text = ["Hi, I'm Abhishek","Hi, I'm Abhishek","Hi, I'm Abhishek"]
     const [currentText,setCurrentText] = useState("");
     const [endValue,setEndValue] = useState(true);
     const [isForward,setIsForward] = useState(true);
@@ -21,12 +22,12 @@ const TextChange = () => {
         if(endValue<2.1){
             setIsForward(true);
             //this will calculate prev value remainder with txt.length
-            setIndex((prev)=>prev & text.length)
+            setIndex((prev)=>(prev + 1) % text.length)
         }
       },50);
 
       return () => clearInterval(intervalId) 
-    },[endValue,isForward,index,text])
+    },[endValue,isForward,index])
   return (
     <div className="transition ease duration-300">{currentText}</div>
   )

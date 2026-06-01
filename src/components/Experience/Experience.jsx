@@ -1,8 +1,8 @@
 import { FaJava, FaDatabase, FaServer, FaShieldAlt, FaHtml5, FaCss3Alt, FaCloud } from "react-icons/fa";
-import { SiSpring, SiHibernate, SiJunit5, SiCplusplus, SiMysql, SiPython, SiJavascript, SiPostgresql, SiJenkins, SiSonarqube, SiGithub, SiReact } from "react-icons/si";
+import { SiSpring, SiJunit5, SiCplusplus, SiMysql, SiPython, SiJavascript, SiPostgresql, SiJenkins, SiSonarqube, SiGithub, SiReact } from "react-icons/si";
 import psitImg from "../../assets/psit-logo-1.jpeg";
 import tcsLogo from "../../assets/tcs-logo.webp";
-import {easeOut, motion} from "framer-motion";
+import { motion } from "framer-motion";
 
 const floatingAnimation = {
   initial: { y: 0 },
@@ -76,16 +76,18 @@ const Experience = () => {
       <h1 className="text-3xl md:text-4xl font-bold text-white text-center mb-10">Experience</h1>
 
       {/* Experience Cards Container */}
-      <div className="grid gap-6 md:gap-8 grid-cols-1">
+      <div className="relative grid gap-6 md:gap-8 grid-cols-1">
+        <div className="absolute left-4 top-0 hidden h-full w-px bg-gradient-to-b from-cyan-300/0 via-cyan-300/40 to-cyan-300/0 md:block" />
         {experiences.map((exp, index) => (
           <motion.div
             key={index}
-            className="relative group bg-zinc-900 p-6 rounded-lg shadow-lg overflow-hidden"
+            className="relative group bg-zinc-900/90 p-6 rounded-lg shadow-lg overflow-hidden border border-white/10 md:ml-12"
             initial={{ opacity: 0, x: index%2 ? 120 : -120 }}
             whileInView={{ opacity: 1, x: 0 }}
             whileHover={{ scale: 1.03, boxShadow: "0 20px 40px rgba(99,102,241,0.12)" }}
             transition={{ duration: 0.35 }}
           >
+            <span className="absolute -left-[45px] top-8 hidden h-4 w-4 rounded-full bg-cyan-300 shadow-[0_0_24px_rgba(103,232,249,0.8)] md:block" />
             {/* Hover light background */}
             <div className="absolute inset-0 rounded-lg pointer-events-none bg-gradient-to-r from-indigo-500/5 via-sky-400/4 to-transparent opacity-0 group-hover:opacity-100 transform scale-95 group-hover:scale-100 transition-all duration-300 blur-xl"></div>
             <div className="relative z-10">
@@ -116,7 +118,7 @@ const Experience = () => {
                   key={i}
                   {...floatingAnimation}
                   whileHover={{ scale: 1.05, boxShadow: "0 8px 20px rgba(255,255,255,0.06)" }}
-                  className="flex items-center gap-2 bg-gray-800 px-3 py-1 rounded-full text-white text-xs"
+                className="flex items-center gap-2 bg-gray-800 px-3 py-1 rounded-full text-white text-xs"
                 >
                   {tech.icon} <span className="hidden sm:inline">{tech.name}</span>
                 </motion.span>

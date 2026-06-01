@@ -2,13 +2,14 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import ProjectCard from "./ProjectCard";
+import MagneticButton from "../UI/MagneticButton";
 
 const cards = [
-  { id: 0, content: <ProjectCard title="Connectify" main="A web platform for developers, where they can connect and chat with each other, premium features with subscription." link="https://connectify-web-three.vercel.app/login" /> },
-  { id: 1, content: <ProjectCard title="Crypto Exchange" main="A crypto exchange website where users can view all the exchanges and coins listed in them, in various currencies." link="https://crypto-exchange-six.vercel.app/" /> },
-  { id: 2, content: <ProjectCard title="Youtube Clone" main="A video streaming platform with awesome features like search, live chat, comments, and much more..." link="https://youtube-proj.vercel.app/" /> },
-  { id: 3, content: <ProjectCard title="Netflix-GPT" main="A video streaming website created in React.js with component libraries and Tailwind CSS for styling." link="https://netflix-gpt-rho-two.vercel.app/" /> },
-  { id: 4, content: <ProjectCard title="Food-Genie" main="A food ordering website created in React.js, with features like search, config-driven UI, and more..." link="https://food-genie.vercel.app/" /> }
+  { id: 0, content: <ProjectCard title="Connectify" main="A web platform for developers, where they can connect and chat with each other, premium features with subscription." link="https://connectify-web-three.vercel.app/login" stack={["React", "Node", "Realtime"]} /> },
+  { id: 1, content: <ProjectCard title="Crypto Exchange" main="A crypto exchange website where users can view all the exchanges and coins listed in them, in various currencies." link="https://crypto-exchange-six.vercel.app/" stack={["React", "API", "Charts"]} /> },
+  { id: 2, content: <ProjectCard title="Youtube Clone" main="A video streaming platform with awesome features like search, live chat, comments, and much more..." link="https://youtube-proj.vercel.app/" stack={["React", "Redux", "Live Chat"]} /> },
+  { id: 3, content: <ProjectCard title="Netflix-GPT" main="A video streaming website created in React.js with component libraries and Tailwind CSS for styling." link="https://netflix-gpt-rho-two.vercel.app/" stack={["React", "GPT", "Tailwind"]} /> },
+  { id: 4, content: <ProjectCard title="Food-Genie" main="A food ordering website created in React.js, with features like search, config-driven UI, and more..." link="https://food-genie.vercel.app/" stack={["React", "Search", "UI"]} /> }
 ];
 
 const Carousel = () => {
@@ -17,7 +18,7 @@ const Carousel = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prevIndex) => (prevIndex + 1) % cards.length);
-    }, 2000);
+    }, 4500);
     return () => clearInterval(interval);
   }, []);
 
@@ -54,8 +55,8 @@ const Carousel = () => {
         })}
       </div>
       <div className="flex gap-4 mt-10">
-        <button onClick={prevSlide} className="px-4 py-2 bg-gray-700 text-white rounded-lg shadow-md hover:bg-gray-600"><FaArrowLeft/></button>
-        <button onClick={nextSlide} className="px-4 py-2 bg-gray-700 text-white rounded-lg shadow-md hover:bg-gray-600"><FaArrowRight/></button>
+        <MagneticButton onClick={prevSlide} className="rounded-lg bg-gray-700 px-4 py-2 text-base md:text-base"><FaArrowLeft/></MagneticButton>
+        <MagneticButton onClick={nextSlide} className="rounded-lg bg-gray-700 px-4 py-2 text-base md:text-base"><FaArrowRight/></MagneticButton>
       </div>
     </div>
     </div>

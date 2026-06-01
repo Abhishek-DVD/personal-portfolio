@@ -6,6 +6,40 @@
   scroll-behavior: smooth;
 }
 
+@media (min-width: 768px) {
+  body,
+  a,
+  button {
+    cursor: none;
+  }
+}
+
+::selection {
+  background: rgba(103, 232, 249, 0.35);
+  color: #ffffff;
+}
+
+.project-tilt-card {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.project-tilt-card:hover .project-glare {
+  opacity: 1;
+}
+
+.project-glare {
+  background: radial-gradient(
+    360px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(103, 232, 249, 0.22),
+    transparent 42%
+  );
+}
+
+.magnetic-button {
+  will-change: transform;
+}
+
 .color-empty {
   fill: #e0e0e0; /* Light gray for empty days */
 }

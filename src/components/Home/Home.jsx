@@ -1,44 +1,53 @@
+import { Suspense, createElement, lazy } from "react"
 import avatarImg from "../../assets/avatar.webp"
+import { FaCloud, FaJava, FaNodeJs, FaReact } from "react-icons/fa"
+import { SiPostgresql, SiSpring } from "react-icons/si"
 import TextChange from "../TextChange"
-import resumeDemo from "../../assets/resume-demo.png";
-import { Link } from "lucide-react";
+import MagneticButton from "../UI/MagneticButton"
+
+const HeroScene = lazy(() => import("./HeroScene"))
+
+const orbitItems = [
+  { icon: FaReact, className: "left-2 top-12 text-cyan-300", label: "React" },
+  { icon: FaJava, className: "right-4 top-8 text-orange-300", label: "Java" },
+  { icon: SiSpring, className: "bottom-16 left-4 text-green-400", label: "Spring" },
+  { icon: FaCloud, className: "bottom-8 right-10 text-sky-300", label: "Azure" },
+  { icon: SiPostgresql, className: "left-1/2 top-1 text-blue-300", label: "PostgreSQL" },
+  { icon: FaNodeJs, className: "bottom-2 left-1/2 text-lime-300", label: "Node" },
+]
 
 const Home = () => {
   return (
-    <div className="text-white flex w-full justify-between items-start p-10 md:p-20">
-        <div className="md:w-2/4 md:pt-10">
+    <div className="relative flex w-full flex-col items-center justify-between gap-10 overflow-hidden p-10 text-white md:flex-row md:items-start md:p-20">
+        <Suspense fallback={null}>
+            <HeroScene />
+        </Suspense>
+        <div className="relative z-10 md:w-2/4 md:pt-10">
             <h1 className="text-3xl md:text-6xl font-bold flex leading-normal tracking-tighter"><TextChange/></h1>
             <p className="text-sm mt-4 md:text-2xl leading-tight tracking-tight">I build production-ready full-stack systems: Java/Spring Boot and Node/Express backends for high-volume data platforms, and React frontends. I seek roles where I can drive data quality, optimize performance, and grow into technical leadership.</p>
-            <button className="mt-5 md:mt-10 text-white py-2 px-3 text-sm  md:text-lg md:py-2 md:px-4 hover:opacity-85
-            duration-300 hover:scale-105 font-semibold rounded-3xl bg-[#465697]"><a href="#Contact">Contact me</a></button>
-            {/* <div id="About" className="text-white mt-20 md:flex overflow-hidden items-center md:flex-wrap md:justify-center bg-black
-    shadow-xl mx-0 md:mx-20 bg-opacity-30 rounded-lg p-12"></div> */}
-
-          <div className="mt-20 group relative w-80 p-6 bg-white shadow-lg rounded-2xl overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hidden md:block">
-            {/* Animated Border Effect */}
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-teal-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-
-            {/* Content */}
-                <img
-            src={resumeDemo}
-            alt=""
-            className="w-full h-full object-cover rounded-2xl relative z-10"
-          />
-
-          {/* Overlay on hover */}
-          <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 rounded-2xl flex items-center justify-center">
-            <p className="text-white text-lg font-semibold">
-            <div className="flex">
-            <Link className="text-white items-center"/>
-            <a href="https://drive.google.com/file/d/1jvlP7g2RZUr6ANYto0fMaAfCxvcRarJ-/view?usp=sharing" target="blank">
-                View Resume
-              </a>
+            <div className="mt-5 flex flex-wrap gap-3 md:mt-10">
+                <MagneticButton href="#Contact">Contact me</MagneticButton>
+                <MagneticButton href="#Projects" className="bg-white/10 ring-1 ring-white/15">View projects</MagneticButton>
             </div>
-            </p>
-          </div>
-              </div>
+            <div className="mt-6 max-w-xl rounded-lg border border-white/10 bg-zinc-950/40 p-4 font-mono text-xs text-cyan-100 shadow-2xl shadow-cyan-950/20 backdrop-blur md:text-sm">
+                <p className="text-gray-500">&gt; currently_building</p>
+                <p className="mt-1 text-white">Production-ready full-stack systems</p>
+                <div className="mt-4 flex flex-wrap gap-2 font-sans">
+                    <span className="rounded-full bg-cyan-300/10 px-3 py-1 text-cyan-100 ring-1 ring-cyan-200/20">Azure Certified</span>
+                    <span className="rounded-full bg-indigo-300/10 px-3 py-1 text-indigo-100 ring-1 ring-indigo-200/20">Full Stack Developer</span>
+                    <span className="rounded-full bg-emerald-300/10 px-3 py-1 text-emerald-100 ring-1 ring-emerald-200/20">Problem Solver</span>
+                </div>
+            </div>
         </div>
-        <div><img className="" src={avatarImg} alt=""/></div>
+        <div className="relative z-10 flex min-h-80 w-full max-w-sm items-center justify-center md:max-w-md">
+            <div className="absolute h-72 w-72 animate-[spin_18s_linear_infinite] rounded-full border border-dashed border-cyan-200/25 md:h-96 md:w-96" />
+            {orbitItems.map(({ icon, className, label }) => (
+                <div key={label} className={`absolute ${className} cursor-reactive rounded-full border border-white/10 bg-zinc-950/70 p-3 shadow-lg shadow-cyan-950/30 backdrop-blur`}>
+                    {createElement(icon, { size: 28 })}
+                </div>
+            ))}
+            <img className="relative z-10 w-72 drop-shadow-[0_25px_60px_rgba(34,211,238,0.24)] md:w-96" src={avatarImg} alt="Developer avatar"/>
+        </div>
     </div>
   )
 }
